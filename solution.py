@@ -1,13 +1,12 @@
 class FileReader:
-    def __init__(self, path):
-        self.path = path
+    """Класс FileReader помогает читать из файла"""
+
+    def __init__(self, file_path):
+        self.path = file_path
 
     def read(self):
         try:
-            f = open(self.path)
-        except FileNotFoundError:
-            return ""
-        else:
-            f.close()
             with open(self.path) as f:
                 return f.read()
+        except FileNotFoundError:
+            return ""
